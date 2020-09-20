@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List Express</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="container">
+    <h1>To-Do List</h1>
+    <h2 class="quote">What's planned for today?</h2>
+    <form action="/toDo" method="POST">
+      <input class="itemInput" type="text" placeholder="Enter tasks" name="item">
+      <button id="submitBtn" type="submit">Submit</button>
+    </form>
+    <ul class="itemsList">
+    <% for(var i=0; i<itemsList.length; i++) {%>
+      <li class="items" style="color:<%=itemsList[i].completed%>">
+        <span><%= itemsList[i].item%></span>
+      </li>
+    <% } %>
+    </ul>
+    <span class="listCount">total number: <%= count[0].count%></span>
+    <section class="btns">
+      <button id="clearBtn" type="button" name="button">Clear List</button>
+      <button id="clearItems" type="button" name="button">Clear Completed</button>
+    </section>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>
